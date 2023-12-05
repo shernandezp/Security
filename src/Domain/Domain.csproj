@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Security.Domain</RootNamespace>
+    <AssemblyName>Security.Domain</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Common.Domain" />
+    <PackageReference Include="MediatR" />
+  </ItemGroup>
+
+</Project>
