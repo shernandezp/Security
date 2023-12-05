@@ -1,6 +1,6 @@
-﻿# ReThinkMarket
+﻿# Security
 
-The project was generated using the [Clean.Architecture.Solution.Template](https://github.com/jasontaylordev/ReThinkMarket) version 8.0.0-preview.7.2.
+The project was generated using the [Clean.Architecture.Solution.Template](https://github.com/jasontaylordev/Security) version 8.0.0-preview.7.2.
 
 ## Build
 
@@ -55,4 +55,4 @@ dotnet test
 ```
 
 ## Help
-To learn more about the template go to the [project website](https://github.com/JasonTaylorDev/ReThinkMarket). Here you can find additional guidance, request new features, report a bug, and discuss the template with other users.
+To learn more about the template go to the [project website](https://github.com/JasonTaylorDev/Security). Here you can find additional guidance, request new features, report a bug, and discuss the template with other users.

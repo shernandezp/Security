@@ -1,7 +1,7 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
+﻿using Security.Application.Common.Interfaces;
 using Common.Domain.Enums;
 
-namespace ReThinkMarket.Application.TodoItems.Commands.UpdateTodoItemDetail;
+namespace Security.Application.TodoItems.Commands.UpdateTodoItemDetail;
 
 public record UpdateTodoItemDetailCommand : IRequest
 {

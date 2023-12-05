@@ -1,7 +1,7 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
-using ReThinkMarket.Domain.Events;
+﻿using Security.Application.Common.Interfaces;
+using Security.Domain.Events;
 
-namespace ReThinkMarket.Application.TodoItems.Commands.DeleteTodoItem;
+namespace Security.Application.TodoItems.Commands.DeleteTodoItem;
 
 public record DeleteTodoItemCommand(int Id) : IRequest;
 

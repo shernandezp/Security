@@ -1,8 +1,8 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
+﻿using Security.Application.Common.Interfaces;
 using Common.Application.Mappings;
 using Common.Application.Models;
 
-namespace ReThinkMarket.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+namespace Security.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 public record GetTodoItemsWithPaginationQuery : IRequest<PaginatedList<TodoItemBriefDto>>
 {

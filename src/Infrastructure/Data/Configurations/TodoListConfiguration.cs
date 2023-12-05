@@ -1,8 +1,8 @@
-﻿using ReThinkMarket.Domain.Entities;
+﻿using Security.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ReThinkMarket.Infrastructure.Data.Configurations;
+namespace Security.Infrastructure.Data.Configurations;
 
 public class TodoListConfiguration : IEntityTypeConfiguration<TodoList>
 {

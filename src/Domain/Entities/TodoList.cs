@@ -1,4 +1,4 @@
-﻿namespace ReThinkMarket.Domain.Entities;
+﻿namespace Security.Domain.Entities;
 
 public class TodoList : BaseAuditableEntity
 {

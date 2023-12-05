@@ -1,5 +1,5 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
-using ReThinkMarket.Infrastructure.Data;
+﻿using Security.Application.Common.Interfaces;
+using Security.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;

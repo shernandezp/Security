@@ -1,10 +1,10 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
-using ReThinkMarket.Application.Common.Models;
+﻿using Security.Application.Common.Interfaces;
+using Security.Application.Common.Models;
 using Common.Application.Security;
 using Common.Domain.Constants;
 using Common.Domain.Enums;
 
-namespace ReThinkMarket.Application.TodoLists.Queries.GetTodos;
+namespace Security.Application.TodoLists.Queries.GetTodos;
 
 [Authorize(Roles = Roles.Administrator)]
 public record GetTodosQuery : IRequest<TodosVm>;

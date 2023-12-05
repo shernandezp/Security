@@ -1,8 +1,8 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
+﻿using Security.Application.Common.Interfaces;
 using Common.Application.Security;
 using Common.Domain.Constants;
 
-namespace ReThinkMarket.Application.TodoLists.Commands.PurgeTodoLists;
+namespace Security.Application.TodoLists.Commands.PurgeTodoLists;
 
 [Authorize(Roles = Roles.Administrator)]
 [Authorize(Policy = Policies.CanPurge)]

@@ -1,8 +1,8 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
-using ReThinkMarket.Domain.Entities;
-using ReThinkMarket.Domain.Events;
+﻿using Security.Application.Common.Interfaces;
+using Security.Domain.Entities;
+using Security.Domain.Events;
 
-namespace ReThinkMarket.Application.TodoItems.Commands.CreateTodoItem;
+namespace Security.Application.TodoItems.Commands.CreateTodoItem;
 
 public record CreateTodoItemCommand : IRequest<int>
 {

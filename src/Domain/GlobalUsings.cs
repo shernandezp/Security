@@ -1,6 +1,6 @@
 ﻿global using Common.Domain;
-global using ReThinkMarket.Domain.Entities;
+global using Security.Domain.Entities;
 global using Common.Domain.Enums;
-global using ReThinkMarket.Domain.Events;
-global using ReThinkMarket.Domain.Exceptions;
-global using ReThinkMarket.Domain.ValueObjects;
+global using Security.Domain.Events;
+global using Security.Domain.Exceptions;
+global using Security.Domain.ValueObjects;

@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Domain.Entities;
+﻿using Security.Domain.Entities;
 
-namespace ReThinkMarket.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+namespace Security.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 public class TodoItemBriefDto
 {

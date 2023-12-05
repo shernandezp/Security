@@ -1,4 +1,4 @@
-﻿namespace ReThinkMarket.Application.WeatherForecasts.Queries.GetWeatherForecasts;
+﻿namespace Security.Application.WeatherForecasts.Queries.GetWeatherForecasts;
 
 public record GetWeatherForecastsQuery : IRequest<IEnumerable<WeatherForecast>>;
 

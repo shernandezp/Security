@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Application.Common.Models;
+﻿using Security.Application.Common.Models;
 
-namespace ReThinkMarket.Application.TodoLists.Queries.GetTodos;
+namespace Security.Application.TodoLists.Queries.GetTodos;
 
 public class TodosVm
 {

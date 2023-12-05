@@ -1,4 +1,4 @@
-﻿namespace ReThinkMarket.Application.TodoItems.Commands.UpdateTodoItem;
+﻿namespace Security.Application.TodoItems.Commands.UpdateTodoItem;
 
 public class UpdateTodoItemCommandValidator : AbstractValidator<UpdateTodoItemCommand>
 {

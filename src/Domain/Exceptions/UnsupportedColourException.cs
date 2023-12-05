@@ -1,4 +1,4 @@
-﻿namespace ReThinkMarket.Domain.Exceptions;
+﻿namespace Security.Domain.Exceptions;
 
 public class UnsupportedColourException : Exception
 {

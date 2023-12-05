@@ -1,4 +1,4 @@
-﻿namespace ReThinkMarket.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+﻿namespace Security.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 public class GetTodoItemsWithPaginationQueryValidator : AbstractValidator<GetTodoItemsWithPaginationQuery>
 {

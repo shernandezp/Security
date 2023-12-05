@@ -12,6 +12,8 @@ public sealed class User : BaseAuditableEntity
     public string? SeconSurname { get; set; }
     public DateTime? DOB { get; set; }
     public bool Active { get; set; }
+    public Guid AccountId { get; set; }
+    public Account? Account { get; set; }
     public IEnumerable<Role>? Roles { get; set; }
     public IEnumerable<Profile>? Profiles { get; set; }
 }

@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Domain.Entities;
+﻿using Security.Domain.Entities;
 
-namespace ReThinkMarket.Application.TodoLists.Queries.GetTodos;
+namespace Security.Application.TodoLists.Queries.GetTodos;
 
 public class TodoItemDto
 {

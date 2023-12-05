@@ -23,6 +23,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.Email).HasColumnName("email");
         builder.Property(x => x.DOB).HasColumnName("dob");
         builder.Property(x => x.Active).HasColumnName("active");
+        builder.Property(x => x.AccountId).HasColumnName("accountid");
 
         builder.Property(t => t.Username)
             .HasMaxLength(ColumnMetadata.DefaultUserNameLength)

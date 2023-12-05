@@ -1,7 +1,7 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
-using ReThinkMarket.Domain.Entities;
+﻿using Security.Application.Common.Interfaces;
+using Security.Domain.Entities;
 
-namespace ReThinkMarket.Application.TodoLists.Commands.CreateTodoList;
+namespace Security.Application.TodoLists.Commands.CreateTodoList;
 
 public record CreateTodoListCommand : IRequest<int>
 {

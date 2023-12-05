@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Domain.Entities;
+﻿using Security.Domain.Entities;
 
-namespace ReThinkMarket.Application.Common.Models;
+namespace Security.Application.Common.Models;
 
 public class LookupDto
 {

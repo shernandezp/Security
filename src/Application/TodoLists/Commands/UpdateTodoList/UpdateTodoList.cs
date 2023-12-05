@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
+﻿using Security.Application.Common.Interfaces;
 
-namespace ReThinkMarket.Application.TodoLists.Commands.UpdateTodoList;
+namespace Security.Application.TodoLists.Commands.UpdateTodoList;
 
 public record UpdateTodoListCommand : IRequest
 {

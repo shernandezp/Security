@@ -1,10 +1,10 @@
-﻿using ReThinkMarket.Domain.Entities;
+﻿using Security.Domain.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace ReThinkMarket.Infrastructure.Data;
+namespace Security.Infrastructure.Data;
 
 public static class InitialiserExtensions
 {

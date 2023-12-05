@@ -1,7 +1,7 @@
-﻿using ReThinkMarket.Domain.Events;
+﻿using Security.Domain.Events;
 using Microsoft.Extensions.Logging;
 
-namespace ReThinkMarket.Application.TodoItems.EventHandlers;
+namespace Security.Application.TodoItems.EventHandlers;
 
 public class TodoItemCompletedEventHandler : INotificationHandler<TodoItemCompletedEvent>
 {
@@ -14,7 +14,7 @@ public class TodoItemCompletedEventHandler : INotificationHandler<TodoItemComple
 
     public Task Handle(TodoItemCompletedEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("ReThinkMarket Domain Event: {DomainEvent}", notification.GetType().Name);
+        _logger.LogInformation("Security Domain Event: {DomainEvent}", notification.GetType().Name);
 
         return Task.CompletedTask;
     }

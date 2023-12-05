@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
-using ReThinkMarket.Application.Common.Interfaces;
-using ReThinkMarket.Domain.Entities;
+using Security.Application.Common.Interfaces;
+using Security.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ReThinkMarket.Infrastructure.Data;
+namespace Security.Infrastructure.Data;
 
 public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
@@ -12,9 +12,12 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
-    public DbSet<TodoList> TodoLists => Set<TodoList>();
-
-    public DbSet<TodoItem> TodoItems => Set<TodoItem>();
+    public DbSet<Account> Accounts { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<Profile> Profiles { get; set; }
+    public DbSet<UserRole> UserRoles { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
+﻿using Security.Application.Common.Interfaces;
 
-namespace ReThinkMarket.Application.TodoLists.Commands.CreateTodoList;
+namespace Security.Application.TodoLists.Commands.CreateTodoList;
 
 public class CreateTodoListCommandValidator : AbstractValidator<CreateTodoListCommand>
 {

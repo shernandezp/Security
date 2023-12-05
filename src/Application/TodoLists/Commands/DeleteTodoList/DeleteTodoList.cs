@@ -1,6 +1,6 @@
-﻿using ReThinkMarket.Application.Common.Interfaces;
+﻿using Security.Application.Common.Interfaces;
 
-namespace ReThinkMarket.Application.TodoLists.Commands.DeleteTodoList;
+namespace Security.Application.TodoLists.Commands.DeleteTodoList;
 
 public record DeleteTodoListCommand(int Id) : IRequest;
 

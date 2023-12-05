@@ -1,4 +1,4 @@
-﻿namespace ReThinkMarket.Domain.ValueObjects;
+﻿namespace Security.Domain.ValueObjects;
 
 public class Colour : ValueObject
 {
