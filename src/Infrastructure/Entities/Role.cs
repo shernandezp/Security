@@ -1,5 +1,5 @@
-﻿namespace Security.Domain.Entities;
-public class Role : BaseAuditableEntity
+﻿namespace Security.Infrastructure.Entities;
+public class Role
 {
     public int RoleId { get; set; }
     public required string Name { get; set; }

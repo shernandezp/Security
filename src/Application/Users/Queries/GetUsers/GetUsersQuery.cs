@@ -1,22 +1,17 @@
-﻿using AutoMapper;
-using Security.Application.Common.Interfaces;
+﻿using Security.Domain.Interfaces;
+using Security.Domain.Models;
 
 namespace Security.Application.Users.Queries.GetUsers;
 
-public record GetUsersQuery() : IRequest<UserDto>
+public record GetUsersQuery() : IRequest<UserVm>
 {
-    public required string Id { get; init; }
+    public required Guid Id { get; init; }
 }
 
-public class GetUsersQueryHandler(IApplicationDbContext context, IMapper mapper) : IRequestHandler<GetUsersQuery, UserDto>
+public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUsersQuery, UserVm>
 {
-    public async Task<UserDto> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+    public async Task<UserVm> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
-        return await context.Users
-            .Where(u => u.Id.Equals(request.Id))
-            .Include(role => role.Roles)
-            .Include(user => user.Profiles)
-            .ProjectTo<UserDto>(mapper.ConfigurationProvider)
-            .FirstAsync(cancellationToken);
+        return await reader.GetUserAsync(request.Id, cancellationToken);
     }
 }

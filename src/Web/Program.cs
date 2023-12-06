@@ -1,5 +1,5 @@
 using System.Reflection;
-using Security.Infrastructure.Data;
+using Security.Infrastructure;
 using Security.Web.GraphQL;
 
 var builder = WebApplication.CreateBuilder(args);

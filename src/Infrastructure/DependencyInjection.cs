@@ -1,8 +1,10 @@
-﻿using Security.Application.Common.Interfaces;
-using Security.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
+using Security.Domain.Interfaces;
+using Security.Infrastructure;
+using Security.Infrastructure.Interfaces;
+using Security.Infrastructure.Readers;
+using Security.Infrastructure.Writers;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +23,8 @@ public static class DependencyInjection
         });
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+        services.AddScoped<IUserWriter, UserWriter>();
+        services.AddScoped<IUserReader, UserReader>();
 
         services.AddScoped<ApplicationDbContextInitialiser>();
 

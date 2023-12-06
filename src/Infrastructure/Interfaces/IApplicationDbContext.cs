@@ -1,6 +1,4 @@
-﻿using Security.Domain.Entities;
-
-namespace Security.Application.Common.Interfaces;
+﻿namespace Security.Infrastructure.Interfaces;
 
 public interface IApplicationDbContext
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Security.Infrastructure.Data.Configurations;
+namespace Security.Infrastructure.Configurations;
 
 public class TodoListConfiguration : IEntityTypeConfiguration<TodoList>
 {

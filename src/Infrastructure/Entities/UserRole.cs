@@ -1,4 +1,4 @@
-﻿namespace Security.Domain.Entities;
+﻿namespace Security.Infrastructure.Entities;
 public class UserRole
 {
     public required Guid UserId { get; set; }

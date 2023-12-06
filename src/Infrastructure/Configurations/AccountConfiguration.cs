@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Common.Domain.Constants;
 
-namespace Security.Infrastructure.Data.Configurations;
+namespace Security.Infrastructure.Configurations;
 
 public class AccountConfiguration : IEntityTypeConfiguration<Account>
 {

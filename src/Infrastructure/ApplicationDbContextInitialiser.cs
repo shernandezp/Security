@@ -1,10 +1,9 @@
 ﻿using Security.Domain.Entities;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Security.Infrastructure.Data;
+namespace Security.Infrastructure;
 
 public static class InitialiserExtensions
 {

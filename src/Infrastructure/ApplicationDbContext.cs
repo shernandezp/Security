@@ -1,13 +1,11 @@
 ﻿using System.Reflection;
-using Security.Application.Common.Interfaces;
-using Security.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+using Security.Infrastructure.Interfaces;
 
-namespace Security.Infrastructure.Data;
+namespace Security.Infrastructure;
 
 public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }

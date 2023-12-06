@@ -1,4 +1,7 @@
-﻿namespace Security.Domain.Entities;
+﻿using Common.Domain.Enums;
+using Common.Infrastructure;
+
+namespace Security.Infrastructure.Entities;
 
 public class Account : BaseAuditableEntity
 {
@@ -14,19 +17,4 @@ public class Account : BaseAuditableEntity
 
     public IEnumerable<User>? Users { get; set; }
 
-
-    private bool _done;
-    public bool Done
-    {
-        get => _done;
-        set
-        {
-            if (value && !_done)
-            {
-                AddDomainEvent(new AccountCompletedEvent(this));
-            }
-
-            _done = value;
-        }
-    }
 }

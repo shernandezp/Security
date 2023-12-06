@@ -1,5 +1,5 @@
-﻿namespace Security.Domain.Entities;
-public sealed class Profile : BaseAuditableEntity
+﻿namespace Security.Infrastructure.Entities;
+public sealed class Profile
 {
     public int ProfileId { get; set; }
     public required string Name { get; set; }
