@@ -52,7 +52,7 @@ app.Map("/", () => Results.Redirect("/api"));
 
 var assembly = Assembly.GetExecutingAssembly();
 
-app.MapEndpoints(assembly);
+app.MapEndpoints();
 
 app.MapGraphQL();
 

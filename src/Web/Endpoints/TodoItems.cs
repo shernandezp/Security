@@ -1,9 +1,4 @@
 ﻿using Common.Application.Models;
-using Security.Application.TodoItems.Commands.CreateTodoItem;
-using Security.Application.TodoItems.Commands.DeleteTodoItem;
-using Security.Application.TodoItems.Commands.UpdateTodoItem;
-using Security.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using Security.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 namespace Security.Web.Endpoints;
 

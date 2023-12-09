@@ -1,5 +1,4 @@
-﻿using Security.Domain.Entities;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -16,26 +15,17 @@ public static class InitialiserExtensions
     }
 }
 
-public class ApplicationDbContextInitialiser
+public class ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, ApplicationDbContext context)
 {
-    private readonly ILogger<ApplicationDbContextInitialiser> _logger;
-    private readonly ApplicationDbContext _context;
-
-    public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, ApplicationDbContext context)
-    {
-        _logger = logger;
-        _context = context;
-    }
-
     public async Task InitialiseAsync()
     {
         try
         {
-            await _context.Database.MigrateAsync();
+            await context.Database.MigrateAsync();
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while initialising the database.");
+            logger.LogError(ex, "An error occurred while initialising the database.");
             throw;
         }
     }
@@ -48,7 +38,7 @@ public class ApplicationDbContextInitialiser
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while seeding the database.");
+            logger.LogError(ex, "An error occurred while seeding the database.");
             throw;
         }
     }
@@ -57,21 +47,15 @@ public class ApplicationDbContextInitialiser
     {
         // Default data
         // Seed, if necessary
-        if (!_context.TodoLists.Any())
+        if (!context.Profiles.Any())
         {
-            _context.TodoLists.Add(new TodoList
+            context.Profiles.Add(new Profile
             {
-                Title = "Todo List",
-                Items =
-                {
-                    new TodoItem { Title = "Make a todo list 📃" },
-                    new TodoItem { Title = "Check off the first item ✅" },
-                    new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
-                    new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
-                }
+                Name = "Administrador",
+                Description = string.Empty
             });
 
-            await _context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
     }
 }

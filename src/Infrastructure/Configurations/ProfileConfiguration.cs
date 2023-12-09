@@ -1,6 +1,4 @@
-﻿using Security.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Common.Domain.Constants;
 
 namespace Security.Infrastructure.Configurations;
