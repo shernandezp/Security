@@ -17,7 +17,7 @@ builder.Services.AddHealthChecks()
 builder.Services
     .AddGraphQLServer()
     .AddAuthorization()
-    .AddQueryType<WeatherForecasts>();
+    .AddQueryType<Users>();
 
 var app = builder.Build();
 

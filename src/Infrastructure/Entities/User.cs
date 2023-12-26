@@ -9,7 +9,8 @@ public sealed class User(string username,
     string? secondName,
     string lastName,
     string? seconSurname,
-    DateTime? dOB) : BaseAuditableEntity
+    DateTime? dOB,
+    Guid accountId) : BaseAuditableEntity
 {
     public Guid UserId { get; private set; } = Guid.NewGuid();
     public string Username { get; set; } = username;
@@ -20,8 +21,10 @@ public sealed class User(string username,
     public string LastName { get; set; } = lastName;
     public string? SeconSurname { get; set; } = seconSurname;
     public DateTime? DOB { get; set; } = dOB;
-    public bool Active { get; set; }
-    public Guid AccountId { get; set; }
+    public DateTime? PasswordReset { get; set; }
+    public DateTime? Verified { get; set; }
+    public bool Active { get; set; } = false;
+    public Guid AccountId { get; set; } = accountId;
     public Account? Account { get; set; }
     public IEnumerable<Role> Roles { get; } = new HashSet<Role>();
     public IEnumerable<Profile> Profiles { get; } = new HashSet<Profile>();

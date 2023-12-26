@@ -9,4 +9,6 @@ public record struct UserDto (
     string? SecondName,
     string LastName,
     string? SeconSurname,
-    DateTime? DOB);
+    DateTime? DOB,
+    DateTime? PasswordReset,
+    Guid AccountId);

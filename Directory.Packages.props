@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="Ardalis.GuardClauses" Version="4.2.0" />
     <PackageVersion Include="Common.Application" Version="0.0.5" />
-    <PackageVersion Include="Common.Domain" Version="0.0.5" />
+    <PackageVersion Include="Common.Domain" Version="0.0.10" />
     <PackageVersion Include="Common.Infrastructure" Version="0.0.4" />
     <PackageVersion Include="Common.Web" Version="0.0.1-pre0001" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />

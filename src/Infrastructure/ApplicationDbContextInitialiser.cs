@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Common.Domain.Enums;
+using Common.Domain.Extensions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -57,5 +59,33 @@ public class ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitial
 
             await context.SaveChangesAsync();
         }
+
+        if (!context.Users.Any())
+        {
+            var account = new Account
+            {
+                Name = "Administrador",
+                Description = string.Empty,
+                Type = AccountType.Business,
+                Active = true
+            };
+            context.Accounts.Add(account);
+            await context.SaveChangesAsync();
+
+            var password = "123456".HashPassword();
+            context.Users.Add(new User(
+                "Administrator",
+                password,
+                "email@mail.com",
+                "Admin",
+                "Admin",
+                "",
+                null,
+                null,
+                account.AccountId));
+
+            await context.SaveChangesAsync();
+        }
+
     }
 }

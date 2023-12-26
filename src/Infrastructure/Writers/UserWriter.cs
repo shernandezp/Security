@@ -1,4 +1,5 @@
-﻿using Security.Domain.Interfaces;
+﻿using Common.Domain.Extensions;
+using Security.Domain.Interfaces;
 using Security.Domain.Records;
 using Security.Infrastructure.Interfaces;
 
@@ -8,15 +9,17 @@ public sealed class UserWriter(IApplicationDbContext context) : IUserWriter
 {
     public async Task<UserVm> CreateUserAsync(UserDto userDto, CancellationToken cancellationToken = default)
     {
+        var password = userDto.Password.HashPassword();
         var user = new User(
             userDto.Username,
-            userDto.Password,
+            password,
             userDto.Email,
             userDto.FirstName,
             userDto.SecondName,
             userDto.LastName,
             userDto.SeconSurname,
-            userDto.DOB);
+            userDto.DOB,
+            userDto.AccountId);
 
         await context.Users.AddAsync(user, cancellationToken);
         await context.SaveChangesAsync(cancellationToken);
