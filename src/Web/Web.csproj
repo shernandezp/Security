@@ -35,7 +35,7 @@
   </ItemGroup>
 
 
-  <!-- Auto-generated Open API specification and Angular TypeScript clients -->
+  <!-- Auto-generated Open API specification-->
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>

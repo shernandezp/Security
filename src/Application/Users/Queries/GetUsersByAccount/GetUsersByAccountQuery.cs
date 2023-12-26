@@ -3,10 +3,7 @@ using Security.Domain.Models;
 
 namespace Security.Application.Users.Queries.GetUsersByAccount;
 
-public record GetUsersByAccountQuery() : IRequest<IReadOnlyCollection<UserVm>>
-{
-    public required Guid AccountId { get; init; }
-}
+public record GetUsersByAccountQuery(Guid AccountId) : IRequest<IReadOnlyCollection<UserVm>>;
 
 public class GetUsersByAccountQueryHandler(IUserReader reader) : IRequestHandler<GetUsersByAccountQuery, IReadOnlyCollection<UserVm>>
 {
