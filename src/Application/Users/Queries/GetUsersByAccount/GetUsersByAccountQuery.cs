@@ -8,7 +8,6 @@ public record GetUsersByAccountQuery(Guid AccountId) : IRequest<IReadOnlyCollect
 public class GetUsersByAccountQueryHandler(IUserReader reader) : IRequestHandler<GetUsersByAccountQuery, IReadOnlyCollection<UserVm>>
 {
     public async Task<IReadOnlyCollection<UserVm>> Handle(GetUsersByAccountQuery request, CancellationToken cancellationToken)
-    {
-        return await reader.GetUserByAccountAsync(request.AccountId, cancellationToken);
-    }
+        => await reader.GetUserByAccountAsync(request.AccountId, cancellationToken);
+
 }

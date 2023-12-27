@@ -1,5 +1,4 @@
-﻿using Common.Domain.Extensions;
-using Security.Application.Users.Events;
+﻿using Security.Application.Users.Events;
 using Security.Domain.Interfaces;
 using Security.Domain.Models;
 using Security.Domain.Records;

@@ -1,7 +1,7 @@
 ﻿using Security.Application.Users.Commands.CreateUser;
 using Security.Application.Users.Commands.DeleteUser;
 using Security.Application.Users.Commands.UpdateUser;
-using Security.Application.Users.Queries.GetUsers;
+using Security.Application.Users.Queries.GetUser;
 using Security.Application.Users.Queries.GetUsersByAccount;
 using Security.Domain.Models;
 
@@ -9,13 +9,13 @@ namespace Security.Web.GraphQL;
 
 public class Users
 {
-    public async Task<UserVm> GetUser([Service] ISender sender, [AsParameters] GetUsersQuery query)
+    public async Task<UserVm> GetUser([Service] ISender sender, [AsParameters] GetUserQuery query)
         => await sender.Send(query);
 
     public async Task<IReadOnlyCollection<UserVm>> GetUsers([Service] ISender sender, [AsParameters] GetUsersByAccountQuery query)
         => await sender.Send(query);
 
-    public async Task<UserVm> GetUsers([Service] ISender sender, CreateUserCommand command)
+    public async Task<UserVm> CreateUser([Service] ISender sender, CreateUserCommand command)
         => await sender.Send(command);
 
     public async Task<IResult> UpdateUser(ISender sender, Guid id, UpdateUserCommand command)

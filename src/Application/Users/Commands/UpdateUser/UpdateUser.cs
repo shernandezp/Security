@@ -16,6 +16,6 @@ public class UpdateUserCommandHandler(IUserWriter writer, IPublisher publisher) 
     {
         await writer.UpdateUserAsync(request.User, cancellationToken);
 
-        await publisher.Publish(new UserCreated.Notification(request.User.UserId), cancellationToken);
+        await publisher.Publish(new UserUpdated.Notification(request.User.UserId), cancellationToken);
     }
 }

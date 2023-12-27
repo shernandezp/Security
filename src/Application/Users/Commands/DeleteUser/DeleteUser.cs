@@ -12,7 +12,7 @@ public class DeleteUserCommandHandler(IUserWriter writer, IPublisher publisher) 
     {
         await writer.DeleteUserAsync(request.Id, cancellationToken);
 
-        await publisher.Publish(new UserCreated.Notification(request.Id), cancellationToken);
+        await publisher.Publish(new UserDeleted.Notification(request.Id), cancellationToken);
     }
 
 }

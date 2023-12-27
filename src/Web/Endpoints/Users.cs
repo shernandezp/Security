@@ -1,7 +1,7 @@
 ﻿using Security.Application.Users.Commands.CreateUser;
 using Security.Application.Users.Commands.DeleteUser;
 using Security.Application.Users.Commands.UpdateUser;
-using Security.Application.Users.Queries.GetUsers;
+using Security.Application.Users.Queries.GetUser;
 using Security.Application.Users.Queries.GetUsersByAccount;
 using Security.Domain.Models;
 
@@ -14,13 +14,13 @@ public class Users : EndpointGroupBase
         app.MapGroup(this)
             .RequireAuthorization()
             .MapGet(GetUser)
-            .MapGet(GetUsers, "{id}")
+            .MapGet(GetUsers, "ByAccount/{id}")
             .MapPost(CreateUser)
             .MapPut(UpdateUser, "{id}")
             .MapDelete(DeleteUser, "{id}");
     }
 
-    public async Task<UserVm> GetUser(ISender sender, [AsParameters] GetUsersQuery query)
+    public async Task<UserVm> GetUser(ISender sender, [AsParameters] GetUserQuery query)
         => await sender.Send(query);
 
     public async Task<IReadOnlyCollection<UserVm>> GetUsers(ISender sender, Guid id)

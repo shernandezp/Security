@@ -1,4 +1,5 @@
 ﻿namespace Security.Application.Users.Events;
+
 public sealed class UserCreated
 {
     public class Notification(Guid id) : INotification 

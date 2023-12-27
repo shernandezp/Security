@@ -78,7 +78,7 @@
         ]
       }
     },
-    "/api/Users/{id}": {
+    "/api/Users/ByAccount/{id}": {
       "get": {
         "tags": [
           "Users"
@@ -116,7 +116,9 @@
             "JWT": []
           }
         ]
-      },
+      }
+    },
+    "/api/Users/{id}": {
       "put": {
         "tags": [
           "Users"
