@@ -86,6 +86,5 @@ public class ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitial
 
             await context.SaveChangesAsync();
         }
-
     }
 }
