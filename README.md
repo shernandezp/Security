@@ -1,8 +1,9 @@
-﻿# Securoty API
+﻿# Security API
 
 REST + GraphQL Web API with Clean Architecture.
 
 Common Libraries - [Common](https://github.com/shernandezp/Common)
+
 Identity Server - [Identity](https://github.com/shernandezp/Identity)
 
 ## License
