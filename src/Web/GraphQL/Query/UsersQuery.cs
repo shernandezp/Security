@@ -13,9 +13,18 @@
 //  limitations under the License.
 //
 
-namespace Security.Domain.Records;
+using Security.Application.Users.Queries.GetUser;
+using Security.Application.Users.Queries.GetUsersByAccount;
+using Security.Domain.Models;
 
-public record struct UserPasswordDto(
-    Guid UserId,
-    string Password,
-    string Key);
+namespace Security.Web.GraphQL.Query;
+
+public class UsersQuery
+{
+    public async Task<UserVm> GetUser([Service] ISender sender, [AsParameters] GetUserQuery query)
+        => await sender.Send(query);
+
+    public async Task<IReadOnlyCollection<UserVm>> GetUsers([Service] ISender sender, [AsParameters] GetUsersByAccountQuery query)
+        => await sender.Send(query);
+
+}

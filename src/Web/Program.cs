@@ -1,6 +1,22 @@
+// Copyright (c) 2024 Sergio Hernandez. All rights reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License").
+//  You may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
 using System.Reflection;
 using Security.Infrastructure;
-using Security.Web.GraphQL;
+using Security.Web.GraphQL.Mutation;
+using Security.Web.GraphQL.Query;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +33,8 @@ builder.Services.AddHealthChecks()
 builder.Services
     .AddGraphQLServer()
     .AddAuthorization()
-    .AddQueryType<Users>();
+    .AddQueryType<UsersQuery>()
+    .AddMutationType<UsersMutation>();
 
 var app = builder.Build();
 

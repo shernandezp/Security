@@ -13,21 +13,21 @@
 //  limitations under the License.
 //
 
-using Security.Application.Users.Events;
+using Common.Application.Interfaces;
 using Security.Domain.Interfaces;
 
-namespace Security.Application.Users.Commands.DeleteUser;
-
-public record DeleteUserCommand(Guid Id) : IRequest;
-
-public class DeleteUserCommandHandler(IUserWriter writer, IPublisher publisher) : IRequestHandler<DeleteUserCommand>
+namespace Security.Infrastructure.Identity;
+public class IdentityService(IUserReader userReader) : IIdentityService
 {
-
-    public async Task Handle(DeleteUserCommand request, CancellationToken cancellationToken)
+    public async Task<string?> GetUserNameAsync(Guid userId, CancellationToken token)
     {
-        await writer.DeleteUserAsync(request.Id, cancellationToken);
-
-        await publisher.Publish(new UserDeleted.Notification(request.Id), cancellationToken);
+        var user = await userReader.GetUserAsync(userId, token);
+        return user.Username;
     }
 
+    public async Task<bool> IsInRoleAsync(Guid userId, string role, CancellationToken token)
+        => await userReader.IsInRoleAsync(userId, role, token);
+
+    public async Task<bool> AuthorizeAsync(Guid userId, string policyName, CancellationToken token)
+        => await userReader.AuthorizeAsync(userId, policyName, token);
 }
