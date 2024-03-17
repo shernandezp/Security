@@ -13,10 +13,14 @@
 //  limitations under the License.
 //
 
+using Common.Application.Security;
+using Common.Domain.Constants;
 using Security.Domain.Interfaces;
 using Security.Domain.Models;
 
 namespace Security.Application.Users.Queries.GetUsersByAccount;
+
+[Authorize(Roles = Roles.Administrator)]
 
 public record GetUsersByAccountQuery(Guid AccountId) : IRequest<IReadOnlyCollection<UserVm>>;
 

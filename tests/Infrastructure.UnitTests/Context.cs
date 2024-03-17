@@ -13,19 +13,16 @@
 //  limitations under the License.
 //
 
-using Security.Domain.Interfaces;
-using Security.Domain.Models;
+using Security.Infrastructure.Entities;
 
-namespace Security.Application.Users.Queries.GetUser;
-
-public record GetUserQuery() : IRequest<UserVm>
+namespace Infrastructure.UnitTests;
+internal abstract class Context
 {
-    public required Guid Id { get; init; }
-}
+    // Helper method to generate a mock user for testing purposes
+    public static User GetUser() 
+        => new("username", "password", "email@mail.com", "firstName", "secondName", "lastName", "secondSurname", null, new Guid());
 
-public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserQuery, UserVm>
-{
-    public async Task<UserVm> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        => await reader.GetUserAsync(request.Id, cancellationToken);
+    public static IEnumerable<User> GetUsers()
+        => [GetUser()];
 
 }

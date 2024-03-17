@@ -41,6 +41,6 @@ public sealed class User(string username,
     public bool Active { get; set; } = false;
     public Guid AccountId { get; set; } = accountId;
     public Account? Account { get; set; }
-    public IEnumerable<Role> Roles { get; } = new HashSet<Role>();
-    public IEnumerable<Profile> Profiles { get; } = new HashSet<Profile>();
+    public IEnumerable<Role> Roles { get; } = [];
+    public IEnumerable<Profile> Profiles { get; } = [];
 }

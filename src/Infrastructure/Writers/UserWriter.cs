@@ -49,8 +49,8 @@ public sealed class UserWriter(IApplicationDbContext context) : IUserWriter
             user.LastName,
             user.SeconSurname,
             user.DOB,
-            Enumerable.Empty<RoleVm>(),
-            Enumerable.Empty<ProfileVm>());
+            [],
+            []);
     }
 
     public async Task UpdateUserAsync(UserDto userDto, CancellationToken cancellationToken = default)
