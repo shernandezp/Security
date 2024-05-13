@@ -16,6 +16,7 @@
 namespace Security.Domain.Interfaces;
 public interface IUserReader
 {
+    Task<string> GetUserNameAsync(Guid id, CancellationToken cancellationToken = default);
     Task<UserVm> GetUserAsync(Guid id, CancellationToken cancellationToken = default);
     Task<IReadOnlyCollection<UserVm>> GetUserByAccountAsync(Guid accountId, CancellationToken cancellationToken);
     Task<bool> IsInRoleAsync(Guid id, string name, CancellationToken cancellationToken = default);

@@ -20,10 +20,9 @@ using Security.Domain.Models;
 
 namespace Security.Application.Users.Queries.GetUsersByAccount;
 
+public readonly record struct GetUsersByAccountQuery(Guid AccountId) : IRequest<IReadOnlyCollection<UserVm>>;
+
 [Authorize(Roles = Roles.Administrator)]
-
-public record GetUsersByAccountQuery(Guid AccountId) : IRequest<IReadOnlyCollection<UserVm>>;
-
 public class GetUsersByAccountQueryHandler(IUserReader reader) : IRequestHandler<GetUsersByAccountQuery, IReadOnlyCollection<UserVm>>
 {
     public async Task<IReadOnlyCollection<UserVm>> Handle(GetUsersByAccountQuery request, CancellationToken cancellationToken)

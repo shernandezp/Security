@@ -15,7 +15,7 @@
 
 namespace Security.Domain.Models;
 
-public record struct UserVm (
+public readonly record struct UserVm(
     Guid UserId,
     string Username,
     string Password,
@@ -25,5 +25,5 @@ public record struct UserVm (
     string LastName,
     string? SeconSurname,
     DateTime? DOB,
-    IEnumerable<RoleVm> Roles,
-    IEnumerable<ProfileVm> Profiles);
+    IEnumerable<RoleVm>? Roles,
+    IEnumerable<ProfileVm>? Profiles);

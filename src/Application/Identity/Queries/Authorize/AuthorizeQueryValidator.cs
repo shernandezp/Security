@@ -13,18 +13,16 @@
 //  limitations under the License.
 //
 
-using Security.Domain.Interfaces;
-using Security.Domain.Models;
 
-namespace Security.Application.Users.Queries.GetUser;
+namespace Security.Application.Identity.Queries.Authorize;
 
-public readonly record struct GetUserQuery(Guid Id) : IRequest<UserVm>
+public sealed class AuthorizeQueryValidator : AbstractValidator<AuthorizeQuery>
 {
-}
-
-public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserQuery, UserVm>
-{
-    public async Task<UserVm> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        => await reader.GetUserAsync(request.Id, cancellationToken);
-
+    public AuthorizeQueryValidator()
+    {
+        RuleFor(x => x.UserId)
+            .NotEmpty().WithMessage("User Id is required.");
+        RuleFor(x => x.PolicyName)
+            .NotEmpty().WithMessage("Policy name is required.");
+    }
 }

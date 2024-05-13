@@ -13,18 +13,15 @@
 //  limitations under the License.
 //
 
-using Security.Domain.Interfaces;
-using Security.Domain.Models;
+namespace Security.Application.Identity.Queries.IsInRole;
 
-namespace Security.Application.Users.Queries.GetUser;
-
-public readonly record struct GetUserQuery(Guid Id) : IRequest<UserVm>
+public sealed class IsInRoleQueyValidator : AbstractValidator<IsInRoleQuey>
 {
-}
-
-public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserQuery, UserVm>
-{
-    public async Task<UserVm> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        => await reader.GetUserAsync(request.Id, cancellationToken);
-
+    public IsInRoleQueyValidator()
+    {
+        RuleFor(x => x.UserId)
+            .NotEmpty().WithMessage("User Id is required.");
+        RuleFor(x => x.Role)
+            .NotEmpty().WithMessage("Role is required.");
+    }
 }

@@ -19,7 +19,7 @@ using Security.Domain.Records;
 
 namespace Security.Application.Users.Commands.UpdateUser;
 
-public record UpdateUserCommand : IRequest
+public readonly record struct UpdateUserCommand : IRequest
 {
     public UserDto User { get; init; }
 }

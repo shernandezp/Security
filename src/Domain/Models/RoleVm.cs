@@ -14,5 +14,5 @@
 //
 
 namespace Security.Domain.Models;
-public record struct RoleVm(
+public readonly record struct RoleVm(
     string Name);

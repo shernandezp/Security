@@ -19,6 +19,15 @@ using Security.Infrastructure.Interfaces;
 namespace Security.Infrastructure.Readers;
 public sealed class UserReader(IApplicationDbContext context) : IUserReader
 {
+
+    public async Task<string> GetUserNameAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await context.Users
+            .Where(u => u.UserId.Equals(id))
+            .Select(u => u.Username)
+            .FirstAsync(cancellationToken);
+    }
+
     public async Task<UserVm> GetUserAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await context.Users
@@ -54,8 +63,8 @@ public sealed class UserReader(IApplicationDbContext context) : IUserReader
                 u.LastName,
                 u.SeconSurname,
                 u.DOB,
-                Enumerable.Empty<RoleVm>(),
-                Enumerable.Empty<ProfileVm>()))
+                new List<RoleVm>(),
+                new List<ProfileVm>()))
             .ToListAsync(cancellationToken);
     }
 

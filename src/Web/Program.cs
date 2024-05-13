@@ -53,10 +53,12 @@ app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+//app.UsePathBase("/Security/api");
+
 app.UseSwaggerUi(settings =>
 {
     settings.Path = "/api";
-    settings.DocumentPath = "/api/specification.json";
+    settings.DocumentPath = "api/specification.json";
 });
 
 app.MapControllerRoute(

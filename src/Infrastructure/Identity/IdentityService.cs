@@ -19,11 +19,8 @@ using Security.Domain.Interfaces;
 namespace Security.Infrastructure.Identity;
 public class IdentityService(IUserReader userReader) : IIdentityService
 {
-    public async Task<string?> GetUserNameAsync(Guid userId, CancellationToken token)
-    {
-        var user = await userReader.GetUserAsync(userId, token);
-        return user.Username;
-    }
+    public async Task<string> GetUserNameAsync(Guid userId, CancellationToken token)
+        => await userReader.GetUserNameAsync(userId, token);
 
     public async Task<bool> IsInRoleAsync(Guid userId, string role, CancellationToken token)
         => await userReader.IsInRoleAsync(userId, role, token);

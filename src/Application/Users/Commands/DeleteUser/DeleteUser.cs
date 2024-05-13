@@ -18,7 +18,7 @@ using Security.Domain.Interfaces;
 
 namespace Security.Application.Users.Commands.DeleteUser;
 
-public record DeleteUserCommand(Guid Id) : IRequest;
+public readonly record struct DeleteUserCommand(Guid Id) : IRequest;
 
 public class DeleteUserCommandHandler(IUserWriter writer, IPublisher publisher) : IRequestHandler<DeleteUserCommand>
 {

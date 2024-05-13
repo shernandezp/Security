@@ -14,17 +14,16 @@
 //
 
 using Security.Domain.Interfaces;
-using Security.Domain.Models;
 
-namespace Security.Application.Users.Queries.GetUser;
+namespace Security.Application.Identity.Queries.GetUsername;
 
-public readonly record struct GetUserQuery(Guid Id) : IRequest<UserVm>
+public readonly record struct GetUserNameQuery(Guid UserId) : IRequest<string>
 {
 }
 
-public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserQuery, UserVm>
+public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserNameQuery, string>
 {
-    public async Task<UserVm> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        => await reader.GetUserAsync(request.Id, cancellationToken);
+    public async Task<string> Handle(GetUserNameQuery request, CancellationToken cancellationToken)
+        => await reader.GetUserNameAsync(request.UserId, cancellationToken);
 
 }

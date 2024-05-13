@@ -22,7 +22,7 @@ using Security.Domain.Models;
 
 namespace Security.Web.Endpoints;
 
-public class Users : EndpointGroupBase
+public sealed class Users : EndpointGroupBase
 {
     public override void Map(WebApplication app)
     {
@@ -38,8 +38,8 @@ public class Users : EndpointGroupBase
     public async Task<UserVm> GetUser(ISender sender, [AsParameters] GetUserQuery query)
         => await sender.Send(query);
 
-    public async Task<IReadOnlyCollection<UserVm>> GetUsers(ISender sender, Guid id)
-        => await sender.Send(new GetUsersByAccountQuery(id));
+    public async Task<IReadOnlyCollection<UserVm>> GetUsers(ISender sender, [AsParameters] GetUsersByAccountQuery query)
+        => await sender.Send(query);
 
     public async Task<UserVm> CreateUser(ISender sender, CreateUserCommand command)
         => await sender.Send(command);

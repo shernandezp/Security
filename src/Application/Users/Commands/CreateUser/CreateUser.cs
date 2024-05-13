@@ -20,7 +20,7 @@ using Security.Domain.Records;
 
 namespace Security.Application.Users.Commands.CreateUser;
 
-public record CreateUserCommand : IRequest<UserVm>
+public readonly record struct CreateUserCommand : IRequest<UserVm>
 {
     public required UserDto User { get; init; }
 }

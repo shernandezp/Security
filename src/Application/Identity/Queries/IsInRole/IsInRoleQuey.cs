@@ -14,17 +14,16 @@
 //
 
 using Security.Domain.Interfaces;
-using Security.Domain.Models;
 
-namespace Security.Application.Users.Queries.GetUser;
+namespace Security.Application.Identity.Queries.IsInRole;
 
-public readonly record struct GetUserQuery(Guid Id) : IRequest<UserVm>
+public readonly record struct IsInRoleQuey(Guid UserId, string Role) : IRequest<bool>
 {
 }
 
-public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserQuery, UserVm>
+public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<IsInRoleQuey, bool>
 {
-    public async Task<UserVm> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        => await reader.GetUserAsync(request.Id, cancellationToken);
+    public async Task<bool> Handle(IsInRoleQuey request, CancellationToken cancellationToken)
+        => await reader.IsInRoleAsync(request.UserId, request.Role, cancellationToken);
 
 }

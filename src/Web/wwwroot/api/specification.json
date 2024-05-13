@@ -1,11 +1,160 @@
 {
-  "x-generator": "NSwag v14.0.3.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "ReThinkMarket API",
     "version": "1.0.0"
   },
   "paths": {
+    "/api/Identity/UserName/{userId}": {
+      "get": {
+        "tags": [
+          "Identity"
+        ],
+        "operationId": "GetUserName",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Identity/IsInRole/{userId}/{role}": {
+      "get": {
+        "tags": [
+          "Identity"
+        ],
+        "operationId": "IsInRole",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Identity/Authorize/{userId}/{policyName}": {
+      "get": {
+        "tags": [
+          "Identity"
+        ],
+        "operationId": "Authorize",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "policyName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/Users": {
       "get": {
         "tags": [
@@ -78,7 +227,7 @@
         ]
       }
     },
-    "/api/Users/ByAccount/{id}": {
+    "/api/Users/ByAccount": {
       "get": {
         "tags": [
           "Users"
@@ -86,8 +235,8 @@
         "operationId": "GetUsers",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "name": "AccountId",
+            "in": "query",
             "required": true,
             "schema": {
               "type": "string",
@@ -229,12 +378,14 @@
           },
           "roles": {
             "type": "array",
+            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/RoleVm"
             }
           },
           "profiles": {
             "type": "array",
+            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/ProfileVm"
             }

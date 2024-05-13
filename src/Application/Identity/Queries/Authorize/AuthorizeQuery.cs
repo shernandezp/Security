@@ -14,17 +14,16 @@
 //
 
 using Security.Domain.Interfaces;
-using Security.Domain.Models;
 
-namespace Security.Application.Users.Queries.GetUser;
+namespace Security.Application.Identity.Queries.Authorize;
 
-public readonly record struct GetUserQuery(Guid Id) : IRequest<UserVm>
+public readonly record struct AuthorizeQuery(Guid UserId, string PolicyName) : IRequest<bool>
 {
 }
 
-public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<GetUserQuery, UserVm>
+public class GetUsersQueryHandler(IUserReader reader) : IRequestHandler<AuthorizeQuery, bool>
 {
-    public async Task<UserVm> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        => await reader.GetUserAsync(request.Id, cancellationToken);
+    public async Task<bool> Handle(AuthorizeQuery request, CancellationToken cancellationToken)
+        => await reader.AuthorizeAsync(request.UserId, request.PolicyName, cancellationToken);
 
 }
