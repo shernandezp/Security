@@ -14,11 +14,16 @@
 //
 
 using System.Reflection;
+using Microsoft.AspNetCore.HttpOverrides;
 using Security.Infrastructure;
 using Security.Web.GraphQL.Mutation;
 using Security.Web.GraphQL.Query;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<ForwardedHeadersOptions>(options 
+    => options.ForwardedHeaders =
+        ForwardedHeaders.All);
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
@@ -38,6 +43,8 @@ builder.Services
 
 var app = builder.Build();
 
+app.UseForwardedHeaders();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -54,7 +61,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 //app.UsePathBase("/Security/api");
-
+app.UseSwaggerUi();
 app.UseSwaggerUi(settings =>
 {
     settings.Path = "/api";
