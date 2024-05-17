@@ -60,17 +60,11 @@ app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-//app.UsePathBase("/Security/api");
-app.UseSwaggerUi();
 app.UseSwaggerUi(settings =>
 {
     settings.Path = "/api";
     settings.DocumentPath = "api/specification.json";
 });
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
 
 app.UseExceptionHandler(options => { });
 
@@ -83,5 +77,3 @@ app.MapEndpoints(assembly);
 app.MapGraphQL();
 
 app.Run();
-
-public partial class Program { }
