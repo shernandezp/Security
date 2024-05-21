@@ -25,16 +25,16 @@ public class UsersMutation
     public async Task<UserVm> CreateUser([Service] ISender sender, CreateUserCommand command)
         => await sender.Send(command);
 
-    public async Task<IResult> UpdateUser([Service] ISender sender, Guid id, UpdateUserCommand command)
+    public async Task<bool> UpdateUser([Service] ISender sender, Guid id, UpdateUserCommand command)
     {
-        if (id != command.User.UserId) return Results.BadRequest();
+        if (id != command.User.UserId) return false;
         await sender.Send(command);
-        return Results.NoContent();
+        return true;
     }
 
-    public async Task<IResult> DeleteUser([Service] ISender sender, Guid id)
+    public async Task<Guid> DeleteUser([Service] ISender sender, Guid id)
     {
         await sender.Send(new DeleteUserCommand(id));
-        return Results.NoContent();
+        return id;
     }
 }
